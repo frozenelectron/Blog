@@ -25,9 +25,11 @@ class SessionsController < ApplicationController
     def destroy
         @user = User.find_by(email: params[:user][:email].downcase)
 
-        if @user
+        if @user.
             if @user.destroy!
                 redirect_to root_path, notice:"Your account is deleted!"
+            elseif
+                
 
 
 
