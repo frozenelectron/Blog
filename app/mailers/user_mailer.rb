@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default_from: User::MAILER_FROM_EMAIL
+  default from: User::MAILER_FROM_EMAIL
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

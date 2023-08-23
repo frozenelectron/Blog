@@ -16,6 +16,9 @@
         <li class="nav-item navbar-nav me-right mb-2 mb-lg-0">
           <a class="nav-link active" aria-current="page" href="<%=login_path%>">Login</a>
         </li>
+        <li class="nav-item navbar-nav me-right mb-2 mb-lg-0">
+          <a class="nav-link active" aria-current="page" href="<%=sign_up_path%>">Signup</a>
+        </li>
         <%# <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
@@ -35,7 +38,7 @@
         </li>
       </ul>
       <ul class="navbar-nav me-right mb-2 mb-lg-0">
-        Hi
+        Hi <%= @user&.email %>
       </ul>
       <%# <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

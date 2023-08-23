@@ -16,7 +16,7 @@ class User < ApplicationRecord
     has_many :comments, dependent: :destroy
 
     validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-    validate :unconfirmed_email, format: { with: URI::MailTO::EMAIL_REGEXP, allow_blank: true }
+    validates :unconfirmed_email, format: { with: URI::MailTo::EMAIL_REGEXP, allow_blank: true }
 
     def confirm!
         if unconfirmed_or_reconfirming?
@@ -56,7 +56,7 @@ class User < ApplicationRecord
     end
 
     def confirmable_email
-        if unconfirmed_email.present?_
+        if unconfirmed_email.present?
             unconfirmed_email
         else
             email

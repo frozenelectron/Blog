@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :registrations
   resources :sessions
   resources :confirmations, only: [:create, :edit, :new], param: :confirmation_token
 
@@ -22,5 +21,7 @@ Rails.application.routes.draw do
   put "account", to: "registrations#update"
   get "account", to: "registrations#edit"
   delete "account", to: "registrations#destroy"
+  post "sign_up", to: "registrations#create"
+  get "sign_up", to: "registrations#new"
 
 end

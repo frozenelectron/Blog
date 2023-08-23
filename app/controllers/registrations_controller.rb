@@ -16,7 +16,7 @@ include Authentication
         if @user.save
             login @user
             @user.send_confirmation_email!
-            notice:"You've successfully signed up your account! Happy Blogging!"
+            redirect_to root_path, notice: "You've successfully signed up your account! Happy Blogging!"
         else
             render :new, status: :unprocessable_entity
         end
@@ -25,7 +25,7 @@ include Authentication
     def destroy
         current_user.destroy
         reset_session
-        redirect_to root_path, notice:"Your account has been deleted."
+        redirect_to root_path, notice: "Your account has been deleted."
     end
 
     def edit
@@ -38,7 +38,7 @@ include Authentication
             if @user.update(update_user_params)
                 if params[:user][:unconfirmed_email].present?
                     @user.send_confirmation_email!
-                    redirect_to root_path, notice:"Check you email for confirmation instructions."
+                    redirect_to root_path, notice: "Check you email for confirmation instructions."
                 else
                     redirect_to rooth_path, alert:"Account updated."
                 end
